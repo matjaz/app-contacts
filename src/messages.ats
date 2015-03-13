@@ -1,0 +1,8 @@
+class AbstractContact {
+  constructor(contact){
+    this.contact = contact;
+  }
+}
+
+export class ContactUpdated extends AbstractContact {}
+export class ContactViewed  extends AbstractContact {}

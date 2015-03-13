@@ -1,0 +1,14 @@
+import {BehaviorProperty, CustomElement} from 'aurelia-framework';
+
+@CustomElement('say-hello')
+@BehaviorProperty('name')
+export class SayHello {
+
+  constructor(name = '') {
+    this.name = name;
+  }
+
+  speak() {
+    alert(`Hello ${this.name}!`);
+  }
+}

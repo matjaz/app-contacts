@@ -1,0 +1,33 @@
+import {HttpClient} from 'aurelia-http-client';
+
+export class WebAPI {
+
+  constructor(http:HttpClient){
+    this.api = http.request.withBaseUrl('/api');
+  }
+
+  getContactList() {
+    this.isRequesting = true;
+    return this.api.get('/contacts').then(response => {
+      this.isRequesting = false;
+      return response.content;
+    });
+  }
+
+  getContactDetails(id) {
+    this.isRequesting = true;
+    return this.api.get('/contacts/' + id).then(response => {
+      this.isRequesting = false;
+      return response.content;
+    });
+  }
+
+  saveContact(contact) {
+    this.isRequesting = true;
+    return this.api.withHeader('content-type', 'application/json')
+    .put('/contacts/' + contact.id, contact).then(() => {
+      this.isRequesting = false;
+      return contact;
+    });
+  }
+}

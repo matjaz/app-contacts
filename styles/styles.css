@@ -55,22 +55,20 @@ a:focus {
   padding: 10px;
 }
 
-router-view {
-  position: absolute;
-  top: 0;
-  left: 300px;
-  bottom: 0;
-  right: 0;
-}
-
 .panel {
   margin: 20px;
+}
+
+.contact-detail {
+  display: block;
+  margin-left: 310px;
+  margin-top: 10px;
 }
 
 .button-bar {
   position: absolute;
   right: 0;
-  left: 0;
+  left: 300px;
   bottom: 0;
   border-top: 1px solid #ddd;
   padding: 10px;

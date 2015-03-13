@@ -1,0 +1,14 @@
+import {Router} from 'aurelia-router';
+import {NoView} from 'aurelia-framework';
+
+@NoView()
+export class NoRoute {
+
+  constructor(router:Router) {
+    this.router = router;
+  }
+
+  activate() {
+    this.router.navigate('/');
+  }
+}

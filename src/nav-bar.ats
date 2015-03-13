@@ -1,0 +1,4 @@
+import {NoView, BehaviorProperty} from 'aurelia-framework';
+
+@BehaviorProperty('router')
+export class NavBar {}

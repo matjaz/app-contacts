@@ -4,12 +4,14 @@ System.config({
     "app-contacts/*": "lib/*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
-  }
+  },
+  "baseUrl": "dist"
 });
 
 System.config({
   "map": {
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.9.5",
+    "aurelia-http-client": "github:aurelia/http-client@0.5.5",
     "bootstrap": "github:twbs/bootstrap@3.3.2",
     "css": "github:systemjs/plugin-css@0.1.0",
     "font-awesome": "npm:font-awesome@4.2.0",
@@ -47,6 +49,10 @@ System.config({
     },
     "github:aurelia/history-browser@0.2.5": {
       "aurelia-history": "github:aurelia/history@0.2.4",
+      "core-js": "npm:core-js@0.4.10"
+    },
+    "github:aurelia/http-client@0.5.5": {
+      "aurelia-path": "github:aurelia/path@0.4.5",
       "core-js": "npm:core-js@0.4.10"
     },
     "github:aurelia/loader-default@0.4.3": {
@@ -98,6 +104,9 @@ System.config({
     },
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.0"
+    },
+    "github:rstacruz/nprogress@0.1.6": {
+      "css": "github:systemjs/plugin-css@0.1.0"
     },
     "github:twbs/bootstrap@3.3.2": {
       "css": "github:systemjs/plugin-css@0.1.0",

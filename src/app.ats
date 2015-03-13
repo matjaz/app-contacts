@@ -1,0 +1,22 @@
+import {Router} from 'aurelia-router';
+import {WebAPI} from './web-api';
+
+export class App {
+
+  constructor(router:Router, api:WebAPI) {
+    this.api = api;
+    this.router = router;
+
+    this.router.configure(config => {
+      config.title = 'Demo';
+      config.options.pushState = true;
+      config.map([
+        { route: '',         moduleId: 'say-hello',    nav: true, title: 'Hello' },
+        { route: 'flickr',   moduleId: 'flickr',       nav: true },
+        { route: 'contacts', moduleId: 'contact-list', nav: true, title: 'Contacts'}
+      ]);
+    });
+    this.router.handleUnknownRoutes('no-route');
+  }
+
+}

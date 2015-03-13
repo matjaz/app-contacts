@@ -1,0 +1,13 @@
+import {EventAggregator} from 'aurelia-event-aggregator';
+import {ContactViewed} from './messages';
+
+export class NoSelection {
+  constructor(ea: EventAggregator) {
+    this.message = 'Please Select a Contact.';
+    this.ea = ea;
+  }
+
+  activate() {
+    this.ea.publish(new ContactViewed());
+  }
+}

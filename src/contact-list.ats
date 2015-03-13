@@ -1,0 +1,35 @@
+import {EventAggregator} from 'aurelia-event-aggregator';
+import {Router} from 'aurelia-router';
+import {WebAPI} from './web-api';
+import {ContactUpdated, ContactViewed} from './messages';
+
+export class ContactList {
+
+  constructor(router:Router, api:WebAPI, ea:EventAggregator) {
+    this.router = router;
+    this.api = api;
+    this.contacts = [];
+
+    ea.subscribe(ContactViewed, msg => this.selectedId = msg.contact && msg.contact.id);
+    ea.subscribe(ContactUpdated, msg => {
+      let id = msg.contact.id;
+      let found = this.contacts.filter(x => x.id == id)[0];
+      Object.assign(found, msg.contact);
+    });
+
+    this.router.configure(config => {
+      config.title = 'Contact list';
+      config.map([
+        { route: '/',    moduleId: 'no-selection', title: null},
+        { route: '/:id', moduleId: 'contact-detail' }
+      ]);
+    });
+  }
+
+  activate() {
+    return this.api.getContactList().then(contacts => {
+      this.contacts = contacts;
+    });
+  }
+
+}

@@ -1,19 +1,11 @@
 <template>
   <import from="./loading-indicator"></import>
-  <import from="./contact-list"></import>
+  <import from="./nav-bar"></import>
 
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <i class="fa fa-user"></i>
-        <span>Contacts</span>
-      </a>
-    </div>
-  </nav>
+  <nav-bar router.one-time="router"></nav-bar>
 
   <div class="page-host">
     <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
-    <contact-list></contact-list>
     <router-view></router-view>
   </div>
 </template>
